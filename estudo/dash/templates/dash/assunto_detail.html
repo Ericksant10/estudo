@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Detalhes do Assunto</h1>
+  <table class="table">
+    <tr>
+      <th>Nome</th>
+      <td>{{ object.nome }}</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td>{{ object.descricao }}</td>
+    </tr>
+  </table>
+  <a class="btn btn-sm btn-primary" href="{% url 'assunto_edit' pk=object.pk %}">Editar</a>
+  <a class="btn btn-sm btn-danger" href="{% url 'assunto_delete' pk=object.pk %}">Excluir</a>
+{% endblock %}

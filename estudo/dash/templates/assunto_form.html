@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% if assunto.pk %}Editar Assunto{% else %}Novo Assunto{% endif %}</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn btn-primary" type="submit">Salvar</button>
+</form>
+
+{% endblock %}

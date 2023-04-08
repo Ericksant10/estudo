@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2 class="mb-4">Excluir Assunto</h2>
+  <p>Tem certeza que deseja excluir o assunto "{{ object }}"?</p>
+  <form action="{% url 'assunto_delete' pk=assunto.pk %}" method="post">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger" value="Excluir">
+    <a href="{% url 'assunto_detail' pk=assunto.pk %}" class="btn btn-secondary ml-2">Cancelar</a>
+  </form>
+{% endblock %}

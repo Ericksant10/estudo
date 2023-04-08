@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Assuntos</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Matéria</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for assunto in object_list %}
+        <tr>
+          <td>{{ assunto.nome }}</td>
+          <td>{{ assunto.materia.nome }}</td>
+          <td>
+            <a class="btn btn-sm btn-primary" href="{% url 'assunto_edit' pk=assunto.pk %}">Editar</a>
+            <a class="btn btn-sm btn-danger" href="{% url 'assunto_delete' pk=assunto.pk %}">Excluir</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="3">Não há assuntos cadastrados.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a class="btn btn-sm btn-success" href="{% url 'assunto_new' %}">Novo Assunto</a>
+{% endblock %}

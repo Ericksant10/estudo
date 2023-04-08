@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Tem certeza que deseja excluir a matéria "{{ materia.nome }}"?</h1>
+  <form method="POST">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger" value="Excluir">
+    <a class="btn btn-secondary" href="{% url 'materia_list' %}">Cancelar</a>
+  </form>
+{% endblock %}
